@@ -1,0 +1,8 @@
+/** Basic config file **/
+
+configuration {
+  show-icons:         true;
+  icon-theme:         "Papirus";
+  modes: "run,drun,window,ssh";
+}
+@import "/usr/share/rofi/themes/Monokai.rasi"
