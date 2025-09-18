@@ -2,7 +2,6 @@ require 'custom.set'
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
---  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -11,8 +10,6 @@ vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
 
 -- Make line numbers default
 vim.opt.number = true
@@ -137,9 +134,7 @@ vim.opt.rtp:prepend(lazypath)
 --
 --    :Lazy update
 --
--- NOTE: Here is where you install your plugins.
 require('lazy').setup({
-    -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
     'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
     -- "gc" to comment visual regions/lines
@@ -415,11 +410,6 @@ require('lazy').setup({
                 },
             }
 
-            -- godot setup
-            require("lspconfig")["gdscript"].setup({
-    	        name = "godot",
-    	        cmd = vim.lsp.rpc.connect("127.0.0.1", 6005),
-            })
 
             -- Ensure the servers and tools above are installed
             --  To check the current status of installed tools and/or manually install
@@ -433,7 +423,7 @@ require('lazy').setup({
             -- for you, so that they are available from within Neovim.
             local ensure_installed = vim.tbl_keys(servers or {})
             vim.list_extend(ensure_installed, {
-                'stylua', -- Used to format Lua code
+                'stylua', 'ts_ls', -- Used to format Lua code
             })
             require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
