@@ -135,7 +135,6 @@ vim.opt.rtp:prepend(lazypath)
 --    :Lazy update
 --
 require('lazy').setup({
-    'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
     -- "gc" to comment visual regions/lines
     { 'numToStr/Comment.nvim', opts = {} },
@@ -274,7 +273,7 @@ require('lazy').setup({
         'neovim/nvim-lspconfig',
         dependencies = {
             -- Automatically install LSPs and related tools to stdpath for Neovim
-            { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
+            { 'mason-org/mason.nvim', opts = {} },
             'williamboman/mason-lspconfig.nvim',
             'WhoIsSethDaniel/mason-tool-installer.nvim',
 
@@ -660,7 +659,7 @@ require('lazy').setup({
             -- Prefer git instead of curl in order to improve connectivity in some environments
             require('nvim-treesitter.install').prefer_git = true
             ---@diagnostic disable-next-line: missing-fields
-            require('nvim-treesitter.configs').setup(opts)
+            require('nvim-treesitter').setup(opts)
         end,
     },
 
