@@ -26,39 +26,8 @@
     "battery",
     "clock"
   ],
+
   /* === Modules Left === */
-  "clock": {
-    "timezone": "Europe/Stockholm",
-    "format": "{:%H:%M}",
-    "tooltip-format": "{calendar}",
-    "calendar": {
-      "mode": "month"
-    }
-  },
-  "cpu": {
-    "format": "{usage}% "
-  },
-  "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "<span color='#28CD41'> {icon} </span>{capacity}% ",
-    "format-charging": " 󱐋{capacity}%",
-	  "interval": 1,
-    "format-icons": ["󰂎", "󰁼", "󰁿", "󰂁", "󰁹"],
-    "tooltip": true
-  },
-  "memory": {
-    "format": "{}% 󰍛"
-  },
-  "temperature": {
-    "format": "{temperatureC}°C {icon}",
-    "format-icons": [
-      ""
-    ]
-  },
-  /* === Modules Center === */
   "hyprland/workspaces": {
     "format": "{name} {icon}",
     "format-icons": {
@@ -72,7 +41,40 @@
     "all-outputs": true,
     "show-special": true
   },
+  "cpu": {
+    "format": "{usage}% "
+  },
+  "memory": {
+    "format": "{}% 󰍛"
+  },
+  "temperature": {
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": [
+      ""
+    ]
+  },
+  /* === Modules Center === */
+  "mpris": {
+    "format": "{title} - {artist}",
+    "format-paused": "{status_icon} {title} - {artist}",
+    "status-icons": {
+        "paused": "⏸"
+    },
+	"ignored-players": ["firefox"]
+  },
   /* === Modules Right === */
+  "clock": {
+    "timezone": "Europe/Stockholm",
+    "format": "{:%H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "month",
+      "first-day-of-week": 1,
+      "format": {
+          "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    }
+  },
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
@@ -105,12 +107,15 @@
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50
   },
-    "mpris": {
-        "format": "{title} - {artist}",
-        "format-paused": "{status_icon} {title} - {artist}",
-        "status-icons": {
-            "paused": "⏸"
-        },
-	    "ignored-players": ["firefox"]
-    }
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "<span color='#28CD41'> {icon} </span>{capacity}% ",
+    "format-charging": " 󱐋{capacity}%",
+	  "interval": 1,
+    "format-icons": ["󰂎", "󰁼", "󰁿", "󰂁", "󰁹"],
+    "tooltip": true
+  }
 }
