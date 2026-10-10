@@ -27,9 +27,7 @@ $browser = firefox
 # Autostart necessary processes (like notifications daemons, status bars, etc.)
 # Or execute your favorite apps at launch like this:
 
-# exec-once = $terminal
-# exec-once = nm-applet &
-# exec-once = waybar & hyprpaper & firefox
+exec-once = brightnessctl -d amdgpu_bl1 set 70%
 exec-once = waybar
 
 
@@ -145,32 +143,10 @@ animations {
     animation = zoomFactor,    1,     7,     quick
 }
 
-# Ref https://wiki.hypr.land/Configuring/Workspace-Rules/
-# "Smart gaps" / "No gaps when only"
-# uncomment all if you wish to use that.
-# workspace = w[tv1], gapsout:0, gapsin:0
-# workspace = f[1], gapsout:0, gapsin:0
-# windowrule {
-#     name = no-gaps-wtv1
-#     match:float = false
-#     match:workspace = w[tv1]
-#
-#     border_size = 0
-#     rounding = 0
-# }
-#
-# windowrule {
-#     name = no-gaps-f1
-#     match:float = false
-#     match:workspace = f[1]
-#
-#     border_size = 0
-#     rounding = 0
-# }
 
 # See https://wiki.hypr.land/Configuring/Dwindle-Layout/ for more
 dwindle {
-    pseudotile = true # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+#    pseudotile = true # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
     preserve_split = true # You probably want this
 }
 
@@ -233,7 +209,7 @@ bind = $mainMod, E, exec, $fileManager
 bind = $mainMod, space, togglefloating,
 bind = $mainMod, D, exec, $menu
 bind = $mainMod, P, pseudo, # dwindle
-bind = $mainMod, J, togglesplit, # dwindle
+bind = $mainMod, J, layoutmsg, togglesplit, # dwindle
 bind = $mainMod, B, exec, $browser
 bind = $mainMod SHIFT, P, exec,  grim -g "$(slurp -d)" - | wl-copy
 
